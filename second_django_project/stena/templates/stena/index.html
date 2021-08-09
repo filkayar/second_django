@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Стена объявлений. Заглавная страница</title>
+</head>
+<body>
+    <h1>Объявления</h1>
+    {% for mes in Mes %}
+    <div>
+        <h2>{{ mes.title }}</h2>
+        <p>{{ mes.content }}</p>
+        <p>{{ mes.published|date:"d.m.Y H:i:s" }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
