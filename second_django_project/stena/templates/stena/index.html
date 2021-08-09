@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Стена объявлений. Заглавная страница</title>
+    <title>{% if cur_cat is not None %}Все записи категории {{cur_cat.name}}{% else %}Стена объявлений. Заглавная страница{% endif %}</title>
 </head>
 <body>
     <h1>Объявления</h1>
+    {% if cur_cat is not None %}
+    <h2>Категория {{ cur_cat.name }}</h2>
+    {% endif %}
+    <div>
+        <a href="{% url 'index' %}">Главная страница</a>
+        {% for i in cats %}
+        {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{% url 'cat' i.pk %}">{{ i.name }}</a>   {% endif %}
+        {% endfor %}
+    </div>
     {% for mes in Mes %}
     <div>
         <h2>{{ mes.title }}</h2>
         <p>{{ mes.content }}</p>
+        <p><a href="{% url 'cat' mes.category.pk %}">{{ mes.category.name }}</a></p>
         <p>{{ mes.published|date:"d.m.Y H:i:s" }}</p>
     </div>
     {% endfor %}
+    <a href="{% url 'add' %}">Разместить своё объявление...</a>
 </body>
 </html>
