@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% if cur_cat is not None %}Все записи категории {{cur_cat.name}}{% else %}Стена объявлений. Заглавная страница{% endif %}{% endblock %}</title>
+</head>
+<body>
+    {% block content1 %}
+    {% endblock %}
+    <nav>
+        <a href="{% url 'index' %}">Главная страница</a>
+        {% for i in cats %}
+        {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{% url 'cat' i.pk %}">{{ i.name }}</a>   {% endif %}
+        {% endfor %}
+    </nav>
+    <section>
+    {% block content2 %}
+    {% endblock %}
+    </section>
+</body>
+</html>
