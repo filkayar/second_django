@@ -1,10 +1,23 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{% static 'stena/style.css' %}" type="text/css">
     <meta charset="UTF-8">
-    <title>{% block title %}{% if cur_cat is not None %}Все записи категории {{cur_cat.name}}{% else %}Стена объявлений. Заглавная страница{% endif %}{% endblock %}</title>
+    <title>
+        {% block title %}
+        {% if cur_cat is not None %}
+        Все записи категории {{cur_cat.name}}
+        {% else %}
+        Стена объявлений. Заглавная страница
+        {% endif %}
+        {% endblock %}
+    </title>
 </head>
 <body>
+<div id="heade">
+<img id="head" src="{% static 'stena/bg.jpg' %}" alt="Вести недели">
+</div>
     {% block content1 %}
     {% endblock %}
     <nav>
