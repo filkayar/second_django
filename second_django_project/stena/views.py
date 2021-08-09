@@ -1,8 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.http import HttpResponse
+from .models import Mes
 
 
 def index(request):
-    return HttpResponse('Здесь будет выведен список объявлений.')
+    context = {'Mes': Mes.objects.all()}
+    return render(request, 'stena/index.html', context)
+
