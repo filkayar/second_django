@@ -14,6 +14,9 @@ class Category(models.Model):
         verbose_name = 'Категория'
         ordering = ['name']
 
+    def get_absolute_url(self):
+        return "/"+str(self.pk)+'/'
+
 
 class Mes(models.Model):
     title = models.CharField(max_length=50, verbose_name='Заголовок')
