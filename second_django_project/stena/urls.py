@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.conf.urls.static import static
+
 from .views import *
 from django.urls import path
 
@@ -7,3 +10,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('add/', MesCreateView.as_view(), name='add'),
 ]
+
+# Менеджер для подгрузки изображений при запросе к оным
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
