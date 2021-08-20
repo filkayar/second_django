@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('stena/', include('stena.urls')),
+    path('', include('stena.urls')),
     path('admin/', admin.site.urls),
 ]
