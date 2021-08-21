@@ -9,11 +9,19 @@
 {% block content2 %}
 {% for mes in Mes %}
 <div>
-    <h2>{{ mes.title }}</h2>
-    <p>{{ mes.content }}</p>
-    <p><a href="{% url 'cat' mes.category.pk %}">{{ mes.category.name }}</a></p>
-    <p>{{ mes.published|date:"d.m.Y H:i:s" }}</p>
+    <h3>{{ mes.title }}</h3>
+    <div id="content">{{ mes.content }}</div>
+    {% if mes.photo.name != '' %}
+    <div id="photo"><img src="{{ mes.photo.url }}" width="350" height="350"></div>
+    {% endif %}
+    <p>{{ mes.published|date:"d.m.Y H:i:s" }}   <a href="{% url 'cat' mes.category.pk %}">{{ mes.category.name }}</a></p>
 </div>
+<hr>
 {% endfor %}
-<a href="{% url 'add' %}">Разместить своё объявление...</a>
+{% endblock %}
+
+{% block content3 %}
+<div id="foot">
+<a id="new" href="{% url 'add' %}"><p id="foot1">Разместить своё объявление...</p></a>
+</div>
 {% endblock %}
