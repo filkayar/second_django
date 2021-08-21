@@ -15,20 +15,26 @@
     </title>
 </head>
 <body>
-<div id="heade">
-<img id="head" src="{% static 'stena/bg.jpg' %}" alt="Вести недели">
-</div>
+    <img id="head" src="{% static 'stena/bg.jpg' %}" alt="Вести недели">
     {% block content1 %}
     {% endblock %}
-    <nav>
-        <a href="{% url 'index' %}">Главная страница</a>
-        {% for i in cats %}
-        {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>   {% endif %}
-        {% endfor %}
-    </nav>
-    <section>
-    {% block content2 %}
-    {% endblock %}
-    </section>
+    <div id="container">
+    <div id="bord">
+        <nav>
+            <a href="{% url 'index' %}">Главная страница</a>
+            {% for i in cats %}
+            {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>   {% endif %}
+            {% endfor %}
+        </nav>
+        <section>
+            {% block content2 %}
+            {% endblock %}
+        </section>
+    </div>
+    </div>
+    <div id="footer">
+        {% block content3 %}
+        {% endblock %}
+    </div>
 </body>
 </html>
