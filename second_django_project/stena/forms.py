@@ -5,4 +5,4 @@ from .models import *
 class MesForm(ModelForm):
     class Meta:
         model = Mes
-        fields = ('title', 'content', 'price', 'category')
+        fields = ('title', 'content', 'price', 'category', 'photo')
