@@ -1,12 +1,24 @@
-{% extends "layout/basic.html" %}
-{% block content1 %}
+<a href="/admin">Панель администратора</a>
+{% extends "layout/base.html" %}
+
+{% block title %}
+{% if cur_cat is not None %}
+Все записи категории {{cur_cat.name}}
+{% else %}
+Стена объявлений. Заглавная страница
+{% endif %}
+{% endblock %}
+
+
+{% block header %}
 <h1>Объявления</h1>
 {% if cur_cat is not None %}
 <h2>Категория {{ cur_cat.name }}</h2>
 {% endif %}
 {% endblock %}
 
-{% block content2 %}
+
+{% block content %}
 {% for mes in Mes %}
 <div>
     <a href="{{ mes.get_absolute_url }}"><h3>{{ mes.title }}</h3></a>
@@ -20,7 +32,8 @@
 {% endfor %}
 {% endblock %}
 
-{% block content3 %}
+
+{% block footer %}
 <div id="foot">
 <a id="new" href="{% url 'add' %}"><p id="foot1">Разместить своё объявление...</p></a>
 </div>
