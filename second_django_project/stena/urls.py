@@ -9,6 +9,7 @@ urlpatterns = [
     path('<int:category_id>/', index, name='cat'),
     path('', index, name='index'),
     path('add/', MesCreateView.as_view(), name='add'),
+    path('mes/<int:mes_id>', message, name='message'),
 ]
 
 # Менеджер для подгрузки изображений при запросе к оным
