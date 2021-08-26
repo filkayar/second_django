@@ -17,6 +17,11 @@ def index(request, category_id=None):
     return render(request, 'stena/index.html', context)
 
 
+def message(request, mes_id):
+    mes = get_object_or_404(Mes, pk=mes_id)
+    return render(request, 'stena/message.html', {'mes': mes, })
+
+
 class MesCreateView(CreateView):
     template_name = 'stena/create.html'
     form_class = MesForm
