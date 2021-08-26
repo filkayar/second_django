@@ -11,7 +11,7 @@
 </head>
 <body>
     <img id="head" src="{% static 'stena/bg.jpg' %}" alt="Вести недели">
-    {% block content1 %}
+    {% block header %}
     {% endblock %}
     <div id="container">
     <div id="bord">
@@ -22,13 +22,13 @@
             {% endfor %}
         </nav>
         <section>
-            {% block content2 %}
+            {% block content %}
             {% endblock %}
         </section>
     </div>
     </div>
     <div id="footer">
-        {% block content3 %}
+        {% block footer %}
         {% endblock %}
     </div>
 </body>
