@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -16,7 +17,7 @@ class Category(models.Model):
         ordering = ['name']
 
     def get_absolute_url(self):
-        return "/"+str(self.pk)+'/'
+        return reverse('cat', kwargs={'category_id': self.pk, })
 
 
 class Mes(models.Model):
