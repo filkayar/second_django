@@ -33,4 +33,7 @@ class Mes(models.Model):
         verbose_name_plural = 'Объявления'
         ordering = ['-published']
 
+    def get_absolute_url(self):
+        return reverse('message', kwargs={'mes_id': self.pk})
+
 
