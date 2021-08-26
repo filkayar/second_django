@@ -15,12 +15,7 @@
     {% endblock %}
     <div id="container">
     <div id="bord">
-        <nav>
-            <a href="{% url 'index' %}">Главная страница</a>
-            {% for i in cats %}
-            {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>   {% endif %}
-            {% endfor %}
-        </nav>
+        {% include 'inc/_nav.html' %}
         <section>
             {% block content %}
             {% endblock %}
