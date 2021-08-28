@@ -25,7 +25,6 @@ class MesCreateView(CreateView):
     form_class = MesForm
     success_url = reverse_lazy('index')
 
-
 # def MesCreateView(request):
 #     if request.method == 'POST':
 #         form = MesForm(request.POST, request.FILES)

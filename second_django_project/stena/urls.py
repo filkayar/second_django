@@ -4,7 +4,6 @@ from django.conf.urls.static import static
 from .views import *
 from django.urls import path
 
-
 urlpatterns = [
     path('<int:category_id>/', index, name='cat'),
     path('', index, name='index'),

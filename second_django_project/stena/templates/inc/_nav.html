@@ -1,8 +1,8 @@
 {% load tags1 %}
 <nav>
-  <a href="{% url 'index' %}">Главная страница</a>
-  {% get_categories as cats %}
-  {% for i in cats %}
-  {% if i == cur_cat %}{{i.name}}     {% else %}<a href="{{ i.get_absolute_url }}">{{ i.name }}</a>   {% endif %}
-  {% endfor %}
+    <a href="{% url 'index' %}">Главная страница</a>
+    {% get_categories as cats %}
+    {% for i in cats %}
+    {% if i == cur_cat %}{{i.name}} {% else %}<a href="{{ i.get_absolute_url }}">{{ i.name }}</a> {% endif %}
+    {% endfor %}
 </nav>

@@ -3,18 +3,17 @@
 {% block title %}Добавление записи{% endblock %}
 
 {% block content %}
-    <h1>Добавление записи</h1>
-    <div>
-        <a href="{ url 'index' %}">Главная страница</a>
-        {% for cat in cats %}
-        <a href="{ url 'cat' cat.pk %}">{{ cat.name }}</a>
-        {% endfor %}
-    </div>
-    <form enctype="multipart/form-data" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Добавить запись...">
-        {{ form.title.errors }}
-        {{ form.non_field_errors }}
-    </form>
+<h1>Добавление записи</h1>
+<div>
+    <a href="{ url 'index' %}">Главная страница</a>
+    {% for cat in cats %}
+    <a href="{ url 'cat' cat.pk %}">{{ cat.name }}</a>
+    {% endfor %}
+</div>
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить запись...">
+    {{ form.non_field_errors }}
+</form>
 {% endblock %}

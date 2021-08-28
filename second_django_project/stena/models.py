@@ -26,7 +26,8 @@ class Mes(models.Model):
     price = models.FloatField(null=True, blank=True, verbose_name='Цена (если указана)')
     photo = models.ImageField(upload_to='photo/%Y/%m/%d', verbose_name="Фотография", blank=True)
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Дата публикации')
-    category = models.ForeignKey(Category, related_name='notes', null=True, on_delete=models.PROTECT, verbose_name='Категория')
+    category = models.ForeignKey(Category, related_name='notes', null=True, on_delete=models.PROTECT,
+                                 verbose_name='Категория')
 
     class Meta:
         verbose_name = 'Объявление'
@@ -35,5 +36,3 @@ class Mes(models.Model):
 
     def get_absolute_url(self):
         return reverse('message', kwargs={'mes_id': self.pk})
-
-

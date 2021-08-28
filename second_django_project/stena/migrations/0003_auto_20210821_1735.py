@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('stena', '0002_auto_20210809_1401'),
     ]
@@ -19,6 +18,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='mes',
             name='category',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='notes', to='stena.category', verbose_name='Категория'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, related_name='notes',
+                                    to='stena.category', verbose_name='Категория'),
         ),
     ]
