@@ -1,0 +1,15 @@
+{% load tags1 %}
+{% get_mesages as Mes %}
+
+{% for mes in Mes %}
+<div>
+    <a href="{{ mes.get_absolute_url }}">
+        <h3>{{ mes.title }}</h3>
+    </a>
+    <div id="content">{{ mes.content }}</div>
+    {% if mes.photo.name != '' %}
+    <div id="photo"><img height="350" src="{{ mes.photo.url }}" width="350"></div>
+    {% endif %}
+    <p>{{ mes.published|date:"d.m.Y H:i:s" }} <a href="{{ mes.get_absolute_url }}">{{ mes.category.name }}</a></p>
+</div>
+{% endfor %}
