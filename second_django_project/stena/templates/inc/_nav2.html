@@ -1,0 +1,33 @@
+{% load tags1 %}
+{% get_categories as cats %}
+<div class="list-group fi-sidebar">
+    {% if cur_cat is None %}
+    <a href="{% url 'index' %}" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Главная страница</h5>
+        </div>
+    </a>
+    {% else %}
+    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Главная страница</h5>
+        </div>
+    </a>
+    {% endif %}
+
+    {% for i in cats %}
+    {% if i == cur_cat %}
+    <a href="{{ i.get_absolute_url }}" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ i.name }}</h5>
+        </div>
+    </a>
+    {% else %}
+    <a href="{{ i.get_absolute_url }}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ i.name }}</h5>
+        </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
