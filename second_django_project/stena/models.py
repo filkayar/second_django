@@ -21,7 +21,7 @@ class Category(models.Model):
 
 
 class Mes(models.Model):
-    title = models.CharField(max_length=50, verbose_name='Заголовок')
+    title = models.CharField(max_length=500, verbose_name='Заголовок')
     content = models.TextField(null=True, blank=True, verbose_name='Содержание сообщения')
     price = models.FloatField(null=True, blank=True, verbose_name='Цена (если указана)')
     photo = models.ImageField(upload_to='photo/%Y/%m/%d', verbose_name="Фотография", blank=True)
