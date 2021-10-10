@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ru">
+
 <head>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap5/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawesome_free/css/all.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'stena/style.css' %}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,23 +13,57 @@
         {% endblock %}
     </title>
 </head>
+
 <body>
-<img alt="Вести недели" id="head" src="{% static 'stena/bg.jpg' %}">
-{% block header %}
-{% endblock %}
-<div id="container">
-    <div id="bord">
-        {% include 'inc/_nav.html' %}
-        <section>
-            {% block content %}
-            {% endblock %}
-        </section>
+    <img class="head-img img-fluid" alt="Вести недели" id="head" src="{% static 'stena/bg.jpg' %}">
+
+    <div class="fi-wrap sticky-top">
+        <nav class="fi-navbar navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand text-uppercase text-light" href="#">
+                    {% block title2 %}
+                    {% endblock %}
+                </a>
+                <div class="fi-navbtn btn-toolbar d-flex" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <a href='#'><button type="button" class="btn btn-secondary"><i class="fas fa-user-alt"></i></button></a>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-secondary">Вход</button>
+                        <button type="button" class="btn btn-secondary">Регистрация</button>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <a href='/admin'><button type="button" class="btn btn-secondary">Админка</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="row fi-side">
+            <div class="col-xl-3 fi-side-2" style='padding:0;'>
+                {% include 'inc/_nav1.html' %}
+            </div>
+        </div>
     </div>
-</div>
-<div id="footer">
-    {% block footer %}
-    {% endblock %}
-</div>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <div class="row">
+        <div class="col-xl-3">
+            {% include 'inc/_nav2.html' %}
+        </div>
+        <div class="col-xl-9">
+            <div class="container fi-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'fontawesome_free/js/all.js' %}"></script>
+    <script src="{% static 'bootstrap5/js/bootstrap.bundle.min.js' %}"></script>
 </body>
+
 </html>
