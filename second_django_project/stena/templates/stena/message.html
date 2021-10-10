@@ -1,16 +1,16 @@
 {% extends 'layout/base.html' %}
 
 {% block title %}
+{% block title2 %}
 {{ mes.title }}
 {% endblock %}
+{% endblock %}
 
-{% block header %}
+
+{% block content %}
 <div id="title">
     <h1>{{ mes.title }}</h1>
 </div>
-{% endblock %}
-
-{% block content %}
 <div id="content">
     {{ mes.content }}
 </div>
