@@ -57,13 +57,19 @@
         </div>
     </div>
 
-    <div id="footer">
-        {% block footer %}
-        {% endblock %}
+<footer class="bd-footer py-5" style="background-color: var(--color3);">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 mb-3 text-center">
+                {% block footer %}
+                {% endblock %}
+            </div>
+        </div>
     </div>
+</footer>
 
-    <script src="{% static 'fontawesome_free/js/all.js' %}"></script>
-    <script src="{% static 'bootstrap5/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'fontawesome_free/js/all.js' %}"></script>
+<script src="{% static 'bootstrap5/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 
 </html>
