@@ -15,47 +15,51 @@
 </head>
 
 <body>
-    <img class="head-img img-fluid" alt="Вести недели" id="head" src="{% static 'stena/bg.jpg' %}">
+<img class="head-img img-fluid" alt="Вести недели" id="head" src="{% static 'stena/bg.jpg' %}">
 
-    <div class="fi-wrap sticky-top">
-        <nav class="fi-navbar navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand text-uppercase text-light" href="#">
-                    {% block title2 %}
-                    {% endblock %}
-                </a>
-                <div class="fi-navbtn btn-toolbar d-flex" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <a href='#'><button type="button" class="btn btn-secondary"><i class="fas fa-user-alt"></i></button></a>
-                    </div>
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <button type="button" class="btn btn-secondary">Вход</button>
-                        <button type="button" class="btn btn-secondary">Регистрация</button>
-                    </div>
-                    <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <a href='/admin'><button type="button" class="btn btn-secondary">Админка</button></a>
-                    </div>
+<div class="fi-wrap sticky-top">
+    <nav class="fi-navbar navbar shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand text-uppercase text-light" href="#">
+                {% block title2 %}
+                {% endblock %}
+            </a>
+            <div class="fi-navbtn btn-toolbar d-flex" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <a href='#'>
+                        <button type="button" class="btn btn-secondary"><i class="fas fa-user-alt"></i>
+                            <span class="mx-1">Мой аккаунт</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-secondary">Вход</button>
+                    <button type="button" class="btn btn-secondary">Регистрация</button>
+                </div>
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <a href='/admin'>
+                        <button type="button" class="btn btn-secondary">Админка</button>
+                    </a>
                 </div>
             </div>
-        </nav>
-        <div class="row fi-side">
-            <div class="col-xl-3 fi-side-2" style='padding:0;'>
-                {% include 'inc/_nav1.html' %}
-            </div>
+        </div>
+    </nav>
+    <div class="row fi-side">
+        <div class="col-xl-3 fi-side-2 p-0">
+            {% include 'inc/_nav1.html' %}
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-xl-3">
-            {% include 'inc/_nav2.html' %}
-        </div>
-        <div class="col-xl-9">
-            <div class="container fi-content">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
+<div class="row m-0">
+    <div class="col-xl-3 p-0 fi-sidebar">
+        {% include 'inc/_nav2.html' %}
     </div>
+    <div class="col-xl-9 p-0">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
 
 <footer class="bd-footer py-5" style="background-color: var(--color3);">
     <div class="container py-5">
