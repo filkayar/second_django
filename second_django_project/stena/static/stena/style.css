@@ -1,9 +1,11 @@
 :root {
-    --color1: #b3ecb3;
-    --color2: #56bee4;
+    --color1: #a6caff;
+    --color2: rgba(237, 249, 253, 0.72);
     --color3: #0089BA;
     --color4: #002D3D;
+    --color5: #f3f7ff;
 }
+
 /* Image */
 
 /* Navbar */
@@ -29,23 +31,23 @@
 }
 
 /* Sidebar */
-.fi-sidebar, .fi-sidepost {
+.fi-sideall {
     border-radius: 0;
 }
 .fi-side {
     margin: 0;
-    
     width:100%;
 }
 .fi-side-2 {
+    background-color: var(--color5);
     position: absolute;
     top:auto;
 }
-.fi-sidepost {
-  
+.fi-sidebar {
+  background-color: var(--color2);
 }
 
 /* Content */
 .fi-content {
-    
+    background-color: var(--color5);
 }

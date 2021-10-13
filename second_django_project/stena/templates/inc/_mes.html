@@ -1,15 +1,32 @@
 {% load tags1 %}
 {% get_mesages as Mes %}
-
-{% for mes in Mes %}
-<div>
-    <a href="{{ mes.get_absolute_url }}">
-        <h3>{{ mes.title }}</h3>
-    </a>
-    <div id="content">{{ mes.content }}</div>
-    {% if mes.photo.name != '' %}
-    <div id="photo"><img height="350" src="{{ mes.photo.url }}" width="350"></div>
-    {% endif %}
-    <p>{{ mes.published|date:"d.m.Y H:i:s" }} <a href="{{ mes.get_absolute_url }}">{{ mes.category.name }}</a></p>
+<div class="card border-0 fi-content">
+    {% for mes in Mes %}
+    <div class="row g-0 m-4 bg-light border shadow-sm">
+        <div class="col-md-4 justify-content-center">
+            {% if mes.photo.name != '' %}
+            <img class="img-fluid rounded-start" src="{{ mes.photo.url }}">
+            {% else %}
+            <svg class="bd-placeholder-img card-img-top" style='text-anchor: middle;' width="100%" height="100%"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#868e96"></rect>
+                <text x='50%' y='50%' fill="#dee2e6" dy=".3em">Изображение отсутствует</text>
+            </svg>
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <a href="{{ mes.get_absolute_url }}" style="text-decoration:none; color:black;">
+                    <h5 class="card-title">{{ mes.title }}</h5>
+                </a>
+                <p class="card-text">{{ mes.content }}</p>
+                <p class="card-text"><small class="text-muted">{{ mes.published|date:"d.m.Y H:i:s" }}
+                    <a href="{{ mes.get_absolute_url }}">{{ mes.category.name }}</a></small>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
